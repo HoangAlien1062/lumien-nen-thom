@@ -20,7 +20,7 @@
     address: contact.address || '128 Đường Xuân Thủy, Phường Thảo Điền, TP. Thủ Đức, TP. Hồ Chí Minh',
     hours: contact.hours || 'Thứ 2 – Chủ Nhật: 08:30 – 21:30',
     shippingFee: typeof cfg.shippingFee === 'number' ? cfg.shippingFee : 25000,
-    freeShippingThreshold: cfg.freeShippingThreshold || 2
+    freeShippingMinAmount: typeof cfg.freeShippingMinAmount === 'number' ? cfg.freeShippingMinAmount : 350000
   };
 
   App.PRODUCTS = [
@@ -28,9 +28,10 @@
       id: 'ocean',
       slug: 'ocean',
       name: 'Ocean',
-      subtitle: 'Hương Biển Mát Lành · Thư Thái',
+      subtitle: 'Đèn & Nến · Hương Biển Mát Lành',
       badge: 'Thư thái nhẹ dịu',
-      price: 200000,
+      stockLabel: 'Sẵn hàng · Trọn bộ đèn & nến',
+      price: 190000,
       image: './images/ocean.jpg',
       placeholderVariant: 'ocean',
       placeholderCaption: 'Hương biển sớm & sả nhẹ',
@@ -45,7 +46,7 @@
         base: 'Gỗ lũa ấm, xạ hương trắng êm ái'
       },
       specs: [
-        { label: 'Công dụng chính', value: 'Thư giãn & xua muỗi dịu nhẹ' },
+        { label: 'Quy cách', value: 'Trọn bộ đèn gỗ + hũ nến' },
         { label: 'Ánh sáng đèn', value: 'Vàng ấm 2700K êm mắt' },
         { label: 'Thời gian tỏa hương', value: '35 – 40 giờ sử dụng' },
         { label: 'Không gian phù hợp', value: 'Phòng 15 – 25 m²' }
@@ -55,9 +56,10 @@
       id: 'blue-mint',
       slug: 'blue-mint',
       name: 'Blue mint',
-      subtitle: 'Hương Bạc Hà Tươi Mát · Sảng Khoái',
+      subtitle: 'Đèn & Nến · Hương Bạc Hà Tươi Mát',
       badge: 'Đuổi muỗi tối ưu',
-      price: 200000,
+      stockLabel: 'Sẵn hàng · Trọn bộ đèn & nến',
+      price: 190000,
       image: './images/blue-mint.jpg',
       placeholderVariant: 'blue-mint',
       placeholderCaption: 'Bạc hà Âu & bạch đàn tươi',
@@ -72,7 +74,7 @@
         base: 'Trà xanh dịu nhẹ, gỗ tuyết tùng mềm'
       },
       specs: [
-        { label: 'Công dụng chính', value: 'Đuổi muỗi hiệu quả & thoáng khí' },
+        { label: 'Quy cách', value: 'Trọn bộ đèn gỗ + hũ nến' },
         { label: 'Ánh sáng đèn', value: 'Vàng ấm 2700K êm mắt' },
         { label: 'Thời gian tỏa hương', value: '35 – 40 giờ sử dụng' },
         { label: 'Không gian phù hợp', value: 'Phòng 15 – 25 m²' }
@@ -82,9 +84,10 @@
       id: 'blossom',
       slug: 'blossom',
       name: 'Blossom',
-      subtitle: 'Hương Hoa Dịu Ngọt · Ấm Áp',
+      subtitle: 'Đèn & Nến · Hương Hoa Dịu Ngọt',
       badge: 'Dễ ngủ sâu giấc',
-      price: 200000,
+      stockLabel: 'Sẵn hàng · Trọn bộ đèn & nến',
+      price: 190000,
       image: './images/blossom.jpg',
       placeholderVariant: 'blossom',
       placeholderCaption: 'Hoa nhài, mẫu đơn & oải hương',
@@ -99,10 +102,38 @@
         base: 'Vani kem ấm áp, gỗ đàn hương dịu'
       },
       specs: [
-        { label: 'Công dụng chính', value: 'Thư giãn trước ngủ & xua muỗi êm' },
+        { label: 'Quy cách', value: 'Trọn bộ đèn gỗ + hũ nến' },
         { label: 'Ánh sáng đèn', value: 'Vàng ấm 2700K êm mắt' },
         { label: 'Thời gian tỏa hương', value: '35 – 40 giờ sử dụng' },
         { label: 'Không gian phù hợp', value: 'Phòng 15 – 25 m²' }
+      ]
+    },
+    {
+      id: 'scented-candle',
+      slug: 'scented-candle',
+      name: 'Scented Candle',
+      subtitle: 'Hũ Nến Thơm Đuổi Muỗi · Bán Lẻ',
+      badge: 'Nến lẻ · Thay thế',
+      stockLabel: 'Sẵn hàng · Hũ nến bán lẻ',
+      price: 45000,
+      image: './images/scented-candle.jpg',
+      placeholderVariant: 'scented-candle',
+      placeholderCaption: 'Sáp kem ấm & tinh dầu thảo mộc',
+      shortDesc:
+        'Hũ nến thơm sáp thực vật bán lẻ với hương gỗ ấm, vani dịu và tinh dầu sả xua muỗi — thắp trực tiếp hoặc thay thế cho đèn ngủ LUMIÈN.',
+      fullDesc:
+        'Scented Candle phiên bản hũ thủy tinh trong suốt tối giản là lựa chọn tiết kiệm khi bạn muốn mua thêm nến thay thế cho đèn LUMIÈN hoặc thắp thư giãn lẻ trên bàn làm việc. Sáp đậu nành kem mịn không khói đen, tỏa hương gỗ ấm hòa vani dịu và tinh dầu sả chanh xua muỗi nhẹ nhàng.',
+      notes: ['Gỗ ấm dịu', 'Vani kem', 'Sả chanh nhẹ'],
+      scentPyramid: {
+        top: 'Sả chanh thanh dịu, cam ngọt nhẹ',
+        heart: 'Gỗ tuyết tùng mềm, hoa trắng tinh khôi',
+        base: 'Vani kem ấm áp, xạ hương dịu êm'
+      },
+      specs: [
+        { label: 'Quy cách', value: '01 hũ nến thủy tinh (không kèm đèn)' },
+        { label: 'Thành phần', value: 'Sáp đậu nành & tinh dầu tự nhiên' },
+        { label: 'Thời gian tỏa hương', value: '25 – 30 giờ sử dụng' },
+        { label: 'Tương thích', value: 'Thắp lẻ hoặc đặt dưới đèn LUMIÈN' }
       ]
     }
   ];
@@ -122,9 +153,9 @@
 
   App.CHAT_QUICK_QUESTIONS = [
     'Mùi nào đuổi muỗi tốt nhất?',
-    'Đèn dùng điện hay pin?',
-    'Phí giao hàng bao nhiêu?',
-    'Gặp nhân viên tư vấn'
+    '1 bộ gồm những gì?',
+    'Có bán hũ nến lẻ không?',
+    'Phí giao hàng bao nhiêu?'
   ];
 
   App.formatVND = function formatVND(amount) {

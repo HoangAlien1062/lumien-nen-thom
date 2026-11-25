@@ -1,16 +1,9 @@
-HƯỚNG DẪN THÊM ẢNH SẢN PHẨM (LUMIÈN - Giai đoạn 1)
-==================================================
+HƯỚNG DẪN ẢNH SẢN PHẨM (LUMIÈN)
+===============================
 
-Hãy đặt 3 file ảnh sản phẩm thực tế vào đúng thư mục `images/` này với tên file:
+Danh sách 4 ảnh sản phẩm trong thư mục `images/`:
 
-1. ocean.jpg      -> Ảnh sản phẩm Ocean (200.000₫)
-2. blue-mint.jpg  -> Ảnh sản phẩm Blue mint (200.000₫)
-3. blossom.jpg    -> Ảnh sản phẩm Blossom (200.000₫)
-
-Khuyến nghị kích thước & tỷ lệ:
-- Tỷ lệ khung hình: 4:5 (dọc, ví dụ 800x1000px hoặc 1200x1500px)
-- Dung lượng tối ưu: < 400KB / ảnh (JPG hoặc WebP đổi tên tương ứng)
-
-Lưu ý: Khi chưa có ảnh trong thư mục này, website sẽ tự động hiển thị ảnh minh họa
-placeholder tinh tế tương ứng với từng mùi hương mà không bị lỗi ảnh vỡ. Ngay khi bạn
-thêm ảnh đúng tên file vào đây và tải lại trang, ảnh thực tế sẽ tự động hiển thị.
+1. ocean.jpg          -> Bộ đèn & nến Ocean (190.000₫)
+2. blue-mint.jpg      -> Bộ đèn & nến Blue mint (190.000₫)
+3. blossom.jpg        -> Bộ đèn & nến Blossom (190.000₫)
+4. scented-candle.jpg -> Hũ nến thơm bán lẻ Scented Candle (45.000₫)

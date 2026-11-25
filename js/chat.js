@@ -170,7 +170,7 @@
       chatState.initialized = true;
       appendMessage(
         'bot',
-        'Xin chào bạn đến với LUMIÈN! Mình có thể trả lời nhanh về 3 mùi hương (Ocean, Blue mint, Blossom — đồng giá 200.000₫), cách dùng đèn, độ an toàn, phí ship hay gói quà. Bạn chọn gợi ý bên dưới hoặc nhắn câu hỏi nhé!'
+        'Xin chào bạn đến với LUMIÈN! Mình có thể tư vấn nhanh về 3 bộ đèn nến thơm đuổi muỗi (Ocean, Blue mint, Blossom — đồng giá 190.000₫) và hũ nến thơm bán lẻ Scented Candle (45.000₫). Bạn chọn gợi ý bên dưới hoặc nhắn câu hỏi nhé!'
       );
     }
 

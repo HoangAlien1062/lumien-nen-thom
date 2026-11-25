@@ -551,6 +551,10 @@
   background: var(--scent-blossom-bg);
 }
 
+.product-placeholder--scented-candle {
+  background: linear-gradient(155deg, #FFFDF7 0%, #FDF5D7 52%, #F6E5A7 100%);
+}
+
 .placeholder-art {
   position: relative;
   z-index: 1;

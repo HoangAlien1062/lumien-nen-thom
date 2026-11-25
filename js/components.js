@@ -229,7 +229,7 @@
             <h3 class="modal-title" id="product-modal-title">${escapeHTML(product.name)}</h3>
             <div class="modal-price-row">
               <span class="modal-price">${App.formatVND(product.price)}</span>
-              <span class="modal-stock">Sẵn hàng · Trọn bộ đèn &amp; nến</span>
+              <span class="modal-stock">${escapeHTML(product.stockLabel || 'Sẵn hàng · Giao nhanh')}</span>
             </div>
           </div>
 
@@ -312,9 +312,9 @@
               </svg>
             </div>
             <h4>Giỏ hàng đang trống</h4>
-            <p>Hãy chọn mùi hương đèn nến yêu thích để mang ánh sáng ấm áp về phòng ngủ của bạn.</p>
+            <p>Hãy chọn mẫu đèn nến hoặc hũ nến thơm yêu thích để mang ánh sáng ấm áp về phòng ngủ của bạn.</p>
             <button type="button" class="btn btn-primary" data-action="cart-explore">
-              Khám phá 3 mùi hương
+              Khám phá sản phẩm
             </button>
           </div>
         `,
@@ -374,11 +374,11 @@
       })
       .join('');
 
-    const freeShipNeed = Math.max(0, App.STORE_INFO.freeShippingThreshold - totalQty);
+    const freeShipMissing = Math.max(0, App.STORE_INFO.freeShippingMinAmount - subtotal);
     const shippingMessage =
-      freeShipNeed === 0
+      freeShipMissing === 0
         ? 'Bạn đã nhận ưu đãi <strong>Miễn phí giao hàng toàn quốc</strong>.'
-        : `Thêm <strong>${freeShipNeed} bộ</strong> nữa để được miễn phí giao hàng (hiện tại ${App.formatVND(shippingFee)}).`;
+        : `Mua thêm <strong>${App.formatVND(freeShipMissing)}</strong> để được miễn phí giao hàng (hiện tại ${App.formatVND(shippingFee)}).`;
 
     return {
       bodyHTML: `<ul class="cart-list">${itemsHTML}</ul>`,

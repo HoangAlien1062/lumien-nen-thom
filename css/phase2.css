@@ -1533,6 +1533,10 @@ a.contact-channel-item:hover {
   background-color: #C9867D;
 }
 
+.admin-progress-fill--scented-candle {
+  background-color: #C99A3B;
+}
+
 /* Status Funnel */
 .admin-funnel-list {
   display: flex;

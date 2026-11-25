@@ -206,7 +206,7 @@
       .map(function (it) {
         return `
           <tr>
-            <td>${App.escapeHTML(it.name)} (Đèn + nến thơm đuổi muỗi)</td>
+            <td>${App.escapeHTML(it.name)} (LUMIÈN)</td>
             <td style="text-align:center;">${it.qty}</td>
             <td style="text-align:right;">${App.formatVND(it.price * it.qty)}</td>
           </tr>
@@ -386,7 +386,7 @@
         <div class="admin-stat-card">
           <span class="admin-stat-label">Giá trị đơn trung bình</span>
           <strong class="admin-stat-value">${App.formatVND(analytics.avgOrderValue)}</strong>
-          <span class="admin-stat-sub">Đồng giá 200.000₫ / bộ</span>
+          <span class="admin-stat-sub">Bộ đèn 190.000₫ · Nến lẻ 45.000₫</span>
         </div>
         <div class="admin-stat-card">
           <span class="admin-stat-label">Khách chờ phản hồi</span>

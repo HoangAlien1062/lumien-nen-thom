@@ -121,9 +121,9 @@
     },
 
     getShippingFee: function () {
-      const totalQty = App.store.getTotalItems();
-      if (totalQty === 0) return 0;
-      return totalQty >= App.STORE_INFO.freeShippingThreshold ? 0 : App.STORE_INFO.shippingFee;
+      const subtotal = App.store.getSubtotal();
+      if (subtotal === 0) return 0;
+      return subtotal >= App.STORE_INFO.freeShippingMinAmount ? 0 : App.STORE_INFO.shippingFee;
     },
 
     getGrandTotal: function () {
@@ -260,14 +260,11 @@
 
       if (items.length === 0) return null;
 
-      const totalQty = items.reduce(function (sum, it) {
-        return sum + it.qty;
-      }, 0);
       const subtotal = items.reduce(function (sum, it) {
         return sum + it.price * it.qty;
       }, 0);
       const shippingFee =
-        input.freeShip || totalQty >= App.STORE_INFO.freeShippingThreshold
+        input.freeShip || subtotal >= App.STORE_INFO.freeShippingMinAmount
           ? 0
           : App.STORE_INFO.shippingFee;
 
