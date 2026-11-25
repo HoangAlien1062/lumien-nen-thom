@@ -49,8 +49,8 @@
     webhooks: {
       // 1. Google Sheets (Khuyên dùng — Miễn phí 100%, dùng mã google-sheets/Code.gs)
       googleSheets: {
-        enabled: false,
-        url: '' // Dán link có dạng: 'https://script.google.com/macros/s/AKfycb.../exec'
+        enabled: true,
+        url: 'https://script.google.com/macros/s/AKfycbzKoeld8xk_-ozEc-cugyavar9pB9lauRBTXfn0OvyUTwyk17c3kuMPfkgN12OgJyh3/exec'
       },
 
       // 2. Telegram Bot (gửi thông báo đơn hàng / tin nhắn ngay về điện thoại)
