@@ -96,7 +96,7 @@
 
     if (phone && !App.validators.isValidVNPhone(phone)) {
       if (els.errorBox) {
-        els.errorBox.textContent = 'Số điện thoại chưa đúng định dạng (VD: 0908 682 468).';
+        els.errorBox.textContent = 'Số điện thoại chưa đúng định dạng (VD: 0397 133 716).';
         els.errorBox.hidden = false;
       }
       if (els.phoneInput) els.phoneInput.focus();

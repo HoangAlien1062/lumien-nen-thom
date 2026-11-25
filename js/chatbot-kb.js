@@ -93,7 +93,7 @@
       ],
       keywords: ['hotline', 'zalo', 'so dien thoai'],
       reply:
-        'Dạ LUMIÈN sẵn sàng hỗ trợ trực tiếp ngay ạ! Bạn hãy điền Tên & SĐT vào khung ngay bên dưới rồi bấm Gửi — nhân viên sẽ nhắn Zalo hoặc gọi lại trong 10–15 phút. Bạn cũng có thể gọi thẳng Hotline 0908 682 468 nhé!',
+        'Dạ LUMIÈN sẵn sàng hỗ trợ trực tiếp ngay ạ! Bạn hãy điền Tên & SĐT vào khung ngay bên dưới rồi bấm Gửi — nhân viên sẽ nhắn Zalo hoặc gọi lại trong 10–15 phút. Bạn cũng có thể gọi thẳng Hotline 0397 133 716 nhé!',
       followUps: ['So sánh 3 mùi hương', 'Có bán hũ nến lẻ không?', 'Phí giao hàng bao nhiêu?']
     },
     {

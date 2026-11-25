@@ -24,9 +24,9 @@
 
     // Thông tin liên hệ cửa hàng
     contact: {
-      phone: '0908 682 468',
-      phoneHref: 'tel:0908682468',
-      zaloUrl: 'https://zalo.me/0908682468',
+      phone: '0397 133 716',
+      phoneHref: 'tel:0397133716',
+      zaloUrl: 'https://zalo.me/0397133716',
       facebookUrl: 'https://facebook.com',
       instagramUrl: 'https://instagram.com',
       tiktokUrl: 'https://tiktok.com',

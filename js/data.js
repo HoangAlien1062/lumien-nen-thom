@@ -12,9 +12,9 @@
   App.STORE_INFO = {
     brandName: cfg.brandName || 'LUMIÈN',
     tagline: cfg.tagline || 'Ánh sáng & Hương thơm',
-    phone: contact.phone || '0908 682 468',
-    phoneHref: contact.phoneHref || 'tel:0908682468',
-    zaloUrl: contact.zaloUrl || 'https://zalo.me/0908682468',
+    phone: contact.phone || '0397 133 716',
+    phoneHref: contact.phoneHref || 'tel:0397133716',
+    zaloUrl: contact.zaloUrl || 'https://zalo.me/0397133716',
     facebookUrl: contact.facebookUrl || 'https://facebook.com',
     email: contact.email || 'hello@lumien.vn',
     address: contact.address || '128 Đường Xuân Thủy, Phường Thảo Điền, TP. Thủ Đức, TP. Hồ Chí Minh',

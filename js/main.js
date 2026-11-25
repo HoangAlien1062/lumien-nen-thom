@@ -478,7 +478,7 @@
         setFieldError(DOM.checkoutForm, 'phone', 'Vui lòng nhập số điện thoại liên hệ.');
         firstInvalid = firstInvalid || DOM.checkoutForm.elements.phone;
       } else if (!App.validators.isValidVNPhone(phone)) {
-        setFieldError(DOM.checkoutForm, 'phone', 'Số điện thoại không hợp lệ (VD: 0908 682 468).');
+        setFieldError(DOM.checkoutForm, 'phone', 'Số điện thoại không hợp lệ (VD: 0397 133 716).');
         firstInvalid = firstInvalid || DOM.checkoutForm.elements.phone;
       }
 
@@ -544,7 +544,7 @@
         setFieldError(DOM.contactForm, 'phone', 'Vui lòng nhập số điện thoại để shop phản hồi.');
         firstInvalid = firstInvalid || DOM.contactForm.elements.phone;
       } else if (!App.validators.isValidVNPhone(phone)) {
-        setFieldError(DOM.contactForm, 'phone', 'Số điện thoại chưa đúng định dạng (VD: 0908 682 468).');
+        setFieldError(DOM.contactForm, 'phone', 'Số điện thoại chưa đúng định dạng (VD: 0397 133 716).');
         firstInvalid = firstInvalid || DOM.contactForm.elements.phone;
       }
 
