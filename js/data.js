@@ -16,8 +16,8 @@
     phoneHref: contact.phoneHref || 'tel:0397133716',
     zaloUrl: contact.zaloUrl || 'https://zalo.me/0397133716',
     facebookUrl: contact.facebookUrl || 'https://facebook.com',
-    email: contact.email || 'hello@lumien.vn',
-    address: contact.address || '128 Đường Xuân Thủy, Phường Thảo Điền, TP. Thủ Đức, TP. Hồ Chí Minh',
+    email: contact.email || 'dangthienkim260509@gmail.com',
+    address: contact.address || 'THPT Bà Điểm',
     hours: contact.hours || 'Thứ 2 – Chủ Nhật: 08:30 – 21:30',
     shippingFee: typeof cfg.shippingFee === 'number' ? cfg.shippingFee : 25000,
     freeShippingMinAmount: typeof cfg.freeShippingMinAmount === 'number' ? cfg.freeShippingMinAmount : 350000

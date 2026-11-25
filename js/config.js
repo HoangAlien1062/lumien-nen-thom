@@ -30,8 +30,8 @@
       facebookUrl: 'https://facebook.com',
       instagramUrl: 'https://instagram.com',
       tiktokUrl: 'https://tiktok.com',
-      email: 'hello@lumien.vn',
-      address: '128 Đường Xuân Thủy, Phường Thảo Điền, TP. Thủ Đức, TP. Hồ Chí Minh',
+      email: 'dangthienkim260509@gmail.com',
+      address: 'THPT Bà Điểm',
       hours: 'Thứ 2 – Chủ Nhật: 08:30 – 21:30'
     },
 

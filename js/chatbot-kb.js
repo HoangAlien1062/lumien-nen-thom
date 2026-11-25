@@ -413,9 +413,9 @@
         'ghe mua truc tiep',
         'den xem hang'
       ],
-      keywords: ['showroom', 'thao dien', 'thu duc', 'mo cua'],
+      keywords: ['showroom', 'ba diem', 'hoc mon', 'mo cua'],
       reply:
-        'Cửa hàng LUMIÈN tọa lạc tại:\n• 128 Đường Xuân Thủy, Phường Thảo Điền, TP. Thủ Đức, TP. Hồ Chí Minh.\n• Giờ mở cửa: 08:30 – 21:30 tất cả các ngày (Thứ 2 – Chủ Nhật).\nBạn có thể ghé thử trực tiếp cả 3 bộ đèn (190.000₫) và hũ nến lẻ (45.000₫) nhé!',
+        'Địa chỉ của LUMIÈN tại:\n• THPT Bà Điểm.\n• Giờ hỗ trợ: 08:30 – 21:30 tất cả các ngày (Thứ 2 – Chủ Nhật).\nBạn cần xem trực tiếp hay đặt giao tận nơi 3 bộ đèn (190.000₫) và hũ nến lẻ (45.000₫) cứ nhắn shop nhé!',
       followUps: ['Phí giao hàng bao nhiêu?', 'So sánh 3 mùi hương', 'Gặp nhân viên tư vấn']
     },
     {
