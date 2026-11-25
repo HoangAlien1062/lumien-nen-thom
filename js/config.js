@@ -15,6 +15,9 @@
     // Mật khẩu mở Panel Quản lý cho Người bán (#admin)
     adminPassword: 'admin123',
 
+    // Link mở trực tiếp bảng tính Google Sheets của chủ shop (chỉ hiện trong giao diện quản trị)
+    googleSheetViewUrl: 'https://docs.google.com/spreadsheets/d/1RHtymsEv5LUWOnby5hfO8lSl_03h-Iqag2A4JZWMFl8/edit',
+
     // Chính sách vận chuyển
     shippingFee: 25000,
     freeShippingThreshold: 2, // Miễn phí ship từ 2 bộ trở lên

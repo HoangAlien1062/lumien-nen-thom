@@ -618,13 +618,8 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 LUMIÈN Studio. Bảo lưu mọi quyền.</p>
-        <p>
-          Đèn thư giãn tích hợp nến thơm đuổi muỗi ·
-          <button type="button" class="footer-admin-trigger" data-action="open-admin">
-            Quản lý cửa hàng
-          </button>
-        </p>
+        <p id="footer-copyright">© 2026 LUMIÈN Studio. Bảo lưu mọi quyền.</p>
+        <p>Đèn thư giãn tích hợp nến thơm đuổi muỗi · Giao hàng toàn quốc</p>
       </div>
     </div>
   </footer>
@@ -880,9 +875,15 @@
 
       <!-- Login Gate -->
       <div class="admin-login-box" id="admin-login-view">
-        <span class="admin-eyebrow">Khu vực Chủ shop</span>
-        <h3>Quản lý cho Người bán</h3>
-        <p>Nhập mật khẩu quản trị để xem đơn hàng, tin nhắn tư vấn và yêu cầu liên hệ.</p>
+        <div class="admin-login-emblem" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <span class="admin-eyebrow">LUMIÈN Seller Studio</span>
+        <h3>Đăng nhập quản trị</h3>
+        <p>Khu vực dành riêng cho chủ cửa hàng quản lý đơn hàng và chăm sóc khách hàng.</p>
 
         <form class="admin-login-form" id="admin-login-form" novalidate>
           <div class="form-group">
@@ -891,22 +892,18 @@
               class="form-input"
               id="admin-password-input"
               type="password"
-              placeholder="Nhập mật khẩu..."
+              placeholder="Nhập mật khẩu cửa hàng..."
               autocomplete="current-password"
               required
             />
           </div>
           <span class="field-error" id="admin-login-error" hidden></span>
-          <button type="submit" class="btn btn-primary btn-full">Đăng nhập</button>
+          <button type="submit" class="btn btn-primary btn-full">Mở bảng quản trị</button>
         </form>
-
-        <p class="admin-login-hint">
-          Mật khẩu demo mặc định: <strong>admin123</strong> (có thể đổi trong <code>js/config.js</code>).
-        </p>
       </div>
 
-      <!-- Authenticated 3-Tab Dashboard -->
-      <div id="admin-dashboard-view" hidden></div>
+      <!-- Authenticated Full Admin Workspace -->
+      <div class="admin-workspace" id="admin-dashboard-view" hidden></div>
     </div>
   </div>
 

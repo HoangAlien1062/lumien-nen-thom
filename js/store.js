@@ -1,6 +1,5 @@
 /* ==========================================================================
-   LUMIÈN — Reactive State Store (Cart, Orders, Chat Leads & Contact Requests)
-   Persists locally in localStorage + triggers Webhook notifications for seller.
+   LUMIÈN — Reactive State Store (Cart, Orders, Chat Leads, Contacts & Analytics)
    ========================================================================== */
 
 (function (global) {
@@ -13,7 +12,8 @@
     LEGACY_CART: 'lumien_phase1_cart_v1',
     ORDERS: 'lumien_phase2_orders_v1',
     CHAT_LEADS: 'lumien_phase2_chat_leads_v1',
-    CONTACTS: 'lumien_phase2_contacts_v1'
+    CONTACTS: 'lumien_phase2_contacts_v1',
+    ADMIN_PASS: 'lumien_admin_pass_override_v1'
   };
 
   const listeners = new Set();
@@ -87,6 +87,23 @@
 
     getState: function () {
       return state;
+    },
+
+    /* ---- Admin Password Helper ---- */
+    getAdminPassword: function () {
+      try {
+        const custom = global.localStorage.getItem(KEYS.ADMIN_PASS);
+        if (custom && custom.trim()) return custom.trim();
+      } catch (_err) {}
+      return (App.CONFIG && App.CONFIG.adminPassword) || 'admin123';
+    },
+
+    setAdminPassword: function (newPass) {
+      const clean = String(newPass || '').trim();
+      try {
+        if (clean) global.localStorage.setItem(KEYS.ADMIN_PASS, clean);
+        else global.localStorage.removeItem(KEYS.ADMIN_PASS);
+      } catch (_err) {}
     },
 
     /* ---- Cart Operations ---- */
@@ -175,7 +192,7 @@
       notify();
     },
 
-    /* ---- Orders (Checkout -> Seller Panel + Webhook) ---- */
+    /* ---- Orders ---- */
     createOrder: function (input) {
       const items = state.cart
         .map(function (entry) {
@@ -201,6 +218,8 @@
         address: input.address.trim(),
         paymentMethod: input.paymentMethod === 'bank' ? 'bank' : 'cod',
         note: (input.note || '').trim(),
+        internalNote: '',
+        channel: 'Website',
         items: items,
         subtotal: subtotal,
         shippingFee: shippingFee,
@@ -224,6 +243,62 @@
       return order;
     },
 
+    createManualOrder: function (input) {
+      const items = (input.items || [])
+        .map(function (entry) {
+          const product = App.getProductById(entry.id);
+          const qty = Number(entry.qty) || 0;
+          if (!product || qty <= 0) return null;
+          return {
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            qty: qty
+          };
+        })
+        .filter(Boolean);
+
+      if (items.length === 0) return null;
+
+      const totalQty = items.reduce(function (sum, it) {
+        return sum + it.qty;
+      }, 0);
+      const subtotal = items.reduce(function (sum, it) {
+        return sum + it.price * it.qty;
+      }, 0);
+      const shippingFee =
+        input.freeShip || totalQty >= App.STORE_INFO.freeShippingThreshold
+          ? 0
+          : App.STORE_INFO.shippingFee;
+
+      const order = {
+        orderCode: generateOrderCode(),
+        customerName: input.customerName.trim(),
+        phone: input.phone.trim(),
+        address: input.address.trim(),
+        paymentMethod: input.paymentMethod === 'bank' ? 'bank' : 'cod',
+        note: (input.note || '').trim(),
+        internalNote: (input.internalNote || '').trim(),
+        channel: input.channel || 'Zalo / Hotline',
+        items: items,
+        subtotal: subtotal,
+        shippingFee: shippingFee,
+        total: subtotal + shippingFee,
+        status: input.status || 'confirmed',
+        createdAt: new Date().toISOString()
+      };
+
+      state.orders.unshift(order);
+      safeWriteJSON(KEYS.ORDERS, state.orders);
+      notify();
+
+      if (App.webhook) {
+        App.webhook.dispatch('order', order);
+      }
+
+      return order;
+    },
+
     updateOrderStatus: function (orderCode, nextStatus) {
       const target = state.orders.find(function (o) {
         return o.orderCode === orderCode;
@@ -232,6 +307,25 @@
       target.status = nextStatus;
       safeWriteJSON(KEYS.ORDERS, state.orders);
       notify();
+    },
+
+    updateOrderInternalNote: function (orderCode, noteText) {
+      const target = state.orders.find(function (o) {
+        return o.orderCode === orderCode;
+      });
+      if (!target) return;
+      target.internalNote = String(noteText || '').trim();
+      safeWriteJSON(KEYS.ORDERS, state.orders);
+      notify();
+    },
+
+    resyncOrderToWebhook: async function (orderCode) {
+      const target = state.orders.find(function (o) {
+        return o.orderCode === orderCode;
+      });
+      if (!target || !App.webhook) return false;
+      await App.webhook.dispatch('order', target);
+      return true;
     },
 
     deleteOrder: function (orderCode) {
@@ -249,7 +343,8 @@
         customerName: input.customerName.trim(),
         phone: input.phone.trim(),
         message: input.message.trim(),
-        transcript: Array.isArray(input.transcript) ? input.transcript.slice(-12) : [],
+        transcript: Array.isArray(input.transcript) ? input.transcript.slice(-16) : [],
+        sellerNote: '',
         status: 'pending',
         createdAt: new Date().toISOString()
       };
@@ -275,6 +370,16 @@
       notify();
     },
 
+    updateChatLeadNote: function (id, noteText) {
+      const target = state.chatLeads.find(function (item) {
+        return item.id === id;
+      });
+      if (!target) return;
+      target.sellerNote = String(noteText || '').trim();
+      safeWriteJSON(KEYS.CHAT_LEADS, state.chatLeads);
+      notify();
+    },
+
     deleteChatLead: function (id) {
       state.chatLeads = state.chatLeads.filter(function (item) {
         return item.id !== id;
@@ -290,6 +395,7 @@
         customerName: input.customerName.trim(),
         phone: input.phone.trim(),
         message: input.message.trim(),
+        sellerNote: '',
         status: 'pending',
         createdAt: new Date().toISOString()
       };
@@ -315,6 +421,16 @@
       notify();
     },
 
+    updateContactNote: function (id, noteText) {
+      const target = state.contacts.find(function (item) {
+        return item.id === id;
+      });
+      if (!target) return;
+      target.sellerNote = String(noteText || '').trim();
+      safeWriteJSON(KEYS.CONTACTS, state.contacts);
+      notify();
+    },
+
     deleteContact: function (id) {
       state.contacts = state.contacts.filter(function (item) {
         return item.id !== id;
@@ -323,21 +439,197 @@
       notify();
     },
 
-    /* ---- Seller Admin Aggregates ---- */
-    getAdminStats: function () {
-      const revenue = state.orders.reduce(function (sum, order) {
-        return order.status === 'cancelled' ? sum : sum + (Number(order.total) || 0);
-      }, 0);
+    clearAllRecords: function () {
+      state.orders = [];
+      state.chatLeads = [];
+      state.contacts = [];
+      safeWriteJSON(KEYS.ORDERS, []);
+      safeWriteJSON(KEYS.CHAT_LEADS, []);
+      safeWriteJSON(KEYS.CONTACTS, []);
+      notify();
+    },
+
+    /* ---- Rich Seller Analytics & CRM Directory ---- */
+    getAnalytics: function () {
+      const statusCounts = { new: 0, confirmed: 0, shipping: 0, completed: 0, cancelled: 0 };
+      const scentMap = {};
+      App.PRODUCTS.forEach(function (p) {
+        scentMap[p.id] = { id: p.id, name: p.name, units: 0, revenue: 0 };
+      });
+
+      let grossRevenue = 0;
+      let completedRevenue = 0;
+      let activeOrdersCount = 0;
+      let totalUnits = 0;
+
+      state.orders.forEach(function (order) {
+        const st = order.status || 'new';
+        if (statusCounts[st] !== undefined) statusCounts[st]++;
+
+        if (st !== 'cancelled') {
+          activeOrdersCount++;
+          grossRevenue += Number(order.total) || 0;
+          if (st === 'completed') {
+            completedRevenue += Number(order.total) || 0;
+          }
+
+          (order.items || []).forEach(function (it) {
+            const qty = Number(it.qty) || 0;
+            totalUnits += qty;
+            if (scentMap[it.id]) {
+              scentMap[it.id].units += qty;
+              scentMap[it.id].revenue += (Number(it.price) || 0) * qty;
+            }
+          });
+        }
+      });
+
+      const scentBreakdown = Object.keys(scentMap).map(function (key) {
+        const row = scentMap[key];
+        return {
+          id: row.id,
+          name: row.name,
+          units: row.units,
+          revenue: row.revenue,
+          percent: totalUnits > 0 ? Math.round((row.units / totalUnits) * 100) : 0
+        };
+      });
+
+      const pendingChatsCount = state.chatLeads.filter(function (c) {
+        return c.status !== 'replied';
+      }).length;
+      const pendingContactsCount = state.contacts.filter(function (c) {
+        return c.status !== 'replied';
+      }).length;
+
+      // Combined recent activity feed
+      const feed = [];
+      state.orders.slice(0, 6).forEach(function (o) {
+        feed.push({
+          type: 'order',
+          title: `Đơn ${o.orderCode} · ${o.customerName}`,
+          meta: `${App.formatVND(o.total)} · ${o.paymentMethod === 'bank' ? 'Chuyển khoản' : 'COD'}`,
+          createdAt: o.createdAt,
+          tab: 'orders'
+        });
+      });
+      state.chatLeads.slice(0, 4).forEach(function (c) {
+        feed.push({
+          type: 'chat',
+          title: `Tư vấn · ${c.customerName} (${c.phone})`,
+          meta: c.message,
+          createdAt: c.createdAt,
+          tab: 'chats'
+        });
+      });
+      state.contacts.slice(0, 4).forEach(function (l) {
+        feed.push({
+          type: 'contact',
+          title: `Liên hệ · ${l.customerName} (${l.phone})`,
+          meta: l.message,
+          createdAt: l.createdAt,
+          tab: 'contacts'
+        });
+      });
+
+      feed.sort(function (a, b) {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      });
 
       return {
         ordersCount: state.orders.length,
-        newOrdersCount: state.orders.filter(function (o) {
-          return o.status === 'new';
-        }).length,
-        revenue: revenue,
+        activeOrdersCount: activeOrdersCount,
+        totalUnits: totalUnits,
+        statusCounts: statusCounts,
+        grossRevenue: grossRevenue,
+        completedRevenue: completedRevenue,
+        avgOrderValue: activeOrdersCount > 0 ? Math.round(grossRevenue / activeOrdersCount) : 0,
         chatLeadsCount: state.chatLeads.length,
-        contactsCount: state.contacts.length
+        pendingChatsCount: pendingChatsCount,
+        contactsCount: state.contacts.length,
+        pendingContactsCount: pendingContactsCount,
+        pendingTotalLeads: pendingChatsCount + pendingContactsCount,
+        scentBreakdown: scentBreakdown,
+        recentActivity: feed.slice(0, 8)
       };
+    },
+
+    getCustomerDirectory: function () {
+      const map = {};
+
+      function touch(phoneRaw, name, createdAt, sourceTag) {
+        const key = App.validators ? App.validators.normalizePhone(phoneRaw) : String(phoneRaw || '').trim();
+        if (!key) return null;
+        if (!map[key]) {
+          map[key] = {
+            phoneKey: key,
+            phone: String(phoneRaw || '').trim(),
+            name: name || 'Khách hàng',
+            orderCount: 0,
+            totalSpent: 0,
+            scentCounts: {},
+            interactions: 0,
+            sources: new Set(),
+            lastActivity: createdAt || ''
+          };
+        }
+        const rec = map[key];
+        if (name && rec.name === 'Khách hàng') rec.name = name;
+        rec.interactions++;
+        rec.sources.add(sourceTag);
+        if (createdAt && (!rec.lastActivity || new Date(createdAt) > new Date(rec.lastActivity))) {
+          rec.lastActivity = createdAt;
+        }
+        return rec;
+      }
+
+      state.orders.forEach(function (o) {
+        const rec = touch(o.phone, o.customerName, o.createdAt, 'Mua hàng');
+        if (!rec) return;
+        if (o.status !== 'cancelled') {
+          rec.orderCount++;
+          rec.totalSpent += Number(o.total) || 0;
+          (o.items || []).forEach(function (it) {
+            rec.scentCounts[it.name] = (rec.scentCounts[it.name] || 0) + (Number(it.qty) || 0);
+          });
+        }
+      });
+
+      state.chatLeads.forEach(function (c) {
+        touch(c.phone, c.customerName, c.createdAt, 'Live Chat');
+      });
+
+      state.contacts.forEach(function (l) {
+        touch(l.phone, l.customerName, l.createdAt, 'Liên hệ');
+      });
+
+      return Object.keys(map)
+        .map(function (k) {
+          const r = map[k];
+          let topScent = 'Chưa chọn';
+          let topQty = 0;
+          Object.keys(r.scentCounts).forEach(function (sName) {
+            if (r.scentCounts[sName] > topQty) {
+              topQty = r.scentCounts[sName];
+              topScent = sName;
+            }
+          });
+          return {
+            phoneKey: r.phoneKey,
+            phone: r.phone,
+            name: r.name,
+            orderCount: r.orderCount,
+            totalSpent: r.totalSpent,
+            favoriteScent: topScent,
+            interactions: r.interactions,
+            sources: Array.from(r.sources),
+            lastActivity: r.lastActivity
+          };
+        })
+        .sort(function (a, b) {
+          if (b.totalSpent !== a.totalSpent) return b.totalSpent - a.totalSpent;
+          return new Date(b.lastActivity || 0).getTime() - new Date(a.lastActivity || 0).getTime();
+        });
     }
   };
 })(window);
