@@ -19,6 +19,12 @@
  *      rồi dán vào `js/config.js` (mục webhooks.googleSheets.url, bật enabled: true).
  */
 
+// Dán ID file Google Sheets của bạn vào đây (đoạn nằm giữa /d/ và /edit trên URL Google Sheet).
+// Ví dụ URL: https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/edit
+// -> SPREADSHEET_ID = '1AbCdEfGhIjKlMnOpQrStUvWxYz'
+// (Nếu để trống '', script sẽ thử lấy Sheet đang gắn trực tiếp với Apps Script.)
+const SPREADSHEET_ID = '';
+
 // (Tùy chọn) Điền Gmail chủ shop nếu muốn nhận thêm email báo ngay khi có khách mới.
 // Để trống '' nếu chỉ cần lưu vào Google Sheets.
 const EMAIL_THONG_BAO = '';
@@ -198,8 +204,21 @@ function doPost(e) {
 /* ==========================================================================
    Hàm hỗ trợ định dạng Sheet tự động
    ========================================================================== */
+function getSpreadsheet() {
+  if (SPREADSHEET_ID && String(SPREADSHEET_ID).trim()) {
+    return SpreadsheetApp.openById(String(SPREADSHEET_ID).trim());
+  }
+  const active = SpreadsheetApp.getActiveSpreadsheet();
+  if (!active) {
+    throw new Error(
+      'Chưa gắn được file Google Sheets. Hãy điền SPREADSHEET_ID ở đầu file Code.gs (đoạn nằm giữa /d/ và /edit trên đường dẫn Google Sheet).'
+    );
+  }
+  return active;
+}
+
 function getOrCreateSheet(cfg) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = getSpreadsheet();
   let sheet = ss.getSheetByName(cfg.name);
 
   if (!sheet) {

@@ -11,11 +11,15 @@ Chỉ mất khoảng **2 phút**, mọi **Đơn hàng**, **Tin nhắn tư vấn*
 ## Bước 2: Dán mã `Code.gs`
 1. Xóa toàn bộ code mẫu mặc định trong khung soạn thảo `Code.gs`.
 2. Mở file `google-sheets/Code.gs` trong thư mục dự án, copy toàn bộ và dán vào Apps Script.
-3. *(Tùy chọn)* Nếu muốn Google tự gửi thêm **Email báo đơn mới**, điền Gmail của bạn vào dòng:
+3. **Điền `SPREADSHEET_ID`** (khuyên dùng để luôn chạy ổn định 100%): Copy đoạn mã nằm giữa `/d/` và `/edit` trên thanh địa chỉ file Google Sheets rồi dán vào dòng đầu file:
+   ```javascript
+   const SPREADSHEET_ID = 'DÁN_ID_FILE_GOOGLE_SHEET_VÀO_ĐÂY';
+   ```
+4. *(Tùy chọn)* Nếu muốn Google tự gửi thêm **Email báo đơn mới**, điền Gmail của bạn vào dòng:
    ```javascript
    const EMAIL_THONG_BAO = 'emailcuaban@gmail.com';
    ```
-4. Bấm **Lưu** (`Ctrl + S`).
+5. Bấm **Lưu** (`Ctrl + S`).
 
 ## Bước 3: Triển khai thành Web App
 1. Ở góc trên bên phải Apps Script, bấm **Triển khai (Deploy)** -> **Tùy chọn triển khai mới (New deployment)**.
