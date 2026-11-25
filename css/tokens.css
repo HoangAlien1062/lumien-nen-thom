@@ -1,0 +1,92 @@
+/* ==========================================================================
+   LUMIÈN — Design Tokens
+   Palette: Pure White, Warm Cream, Pale Warm Yellow, Honey Gold & Warm Brown
+   ========================================================================== */
+
+:root {
+  /* Core Brand Palette */
+  --color-white: #FFFFFF;
+  --color-cream: #FFFDF7;
+  --color-cream-elevated: #FBF6E9;
+  --color-yellow-pale: #FDF5D7;
+  --color-yellow-warm: #F6E5A7;
+  --color-honey: #C99A3B;
+  --color-honey-deep: #A97C24;
+  --color-honey-soft: rgba(201, 154, 59, 0.14);
+  --color-brown: #4A3F35;
+  --color-brown-hover: #382F27;
+  --color-brown-muted: #726558;
+  --color-brown-subtle: #96897B;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(74, 63, 53, 0.10);
+  --border-medium: rgba(74, 63, 53, 0.18);
+  --border-gold: rgba(201, 154, 59, 0.34);
+
+  /* Scent-Specific Soft Tints (harmonized with cream & warm gold) */
+  --scent-ocean-bg: linear-gradient(155deg, #F4F8F7 0%, #E5EFF0 48%, #FDF5D7 100%);
+  --scent-ocean-accent: #5D8991;
+  --scent-mint-bg: linear-gradient(155deg, #F3F8F3 0%, #E2EFE6 48%, #FDF5D7 100%);
+  --scent-mint-accent: #5C8E74;
+  --scent-blossom-bg: linear-gradient(155deg, #FDF6F3 0%, #F8E7E1 48%, #FDF5D7 100%);
+  --scent-blossom-accent: #B87B72;
+
+  /* Typography */
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.625rem;    /* 26px */
+  --text-3xl: clamp(1.85rem, 3vw, 2.5rem);
+  --text-hero: clamp(2rem, 3.85vw, 3.15rem);
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Layout */
+  --container-max: 1180px;
+  --header-height: 78px;
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  /* Warm Ambient Shadows */
+  --shadow-xs: 0 2px 8px rgba(74, 63, 53, 0.04);
+  --shadow-sm: 0 6px 20px rgba(74, 63, 53, 0.06);
+  --shadow-md: 0 14px 36px rgba(74, 63, 53, 0.08);
+  --shadow-lg: 0 24px 56px rgba(74, 63, 53, 0.13);
+  --shadow-glow: 0 12px 32px rgba(201, 154, 59, 0.24);
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 180ms;
+  --duration-base: 300ms;
+  --duration-slow: 550ms;
+
+  /* Z-index layers */
+  --z-header: 100;
+  --z-mobile-nav: 150;
+  --z-backdrop: 200;
+  --z-drawer: 220;
+  --z-modal: 250;
+  --z-toast: 300;
+}

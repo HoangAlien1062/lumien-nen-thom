@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMIÈN — Đèn Thư Giãn Tích Hợp Nến Thơm Đuổi Muỗi</title>
+  <meta
+    name="description"
+    content="LUMIÈN — Đèn thư giãn tích hợp nến thơm đuổi muỗi với ánh sáng vàng ấm dịu nhẹ và tinh dầu thiên nhiên an toàn cho giấc ngủ. Đồng giá 200.000₫ với 3 mùi hương Ocean, Blue mint và Blossom."
+  />
+
+  <!-- Fonts with full Vietnamese support -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/sections.css" />
+  <link rel="stylesheet" href="./css/phase2.css" />
+</head>
+<body>
+  <!-- ======================================================================
+       HEADER & NAVIGATION
+       ====================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#trang-chu" class="brand" aria-label="LUMIÈN - Trang chủ">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c1.8 2.4 3 4.3 3 6.2a3 3 0 1 1-6 0C9 7.3 10.2 5.4 12 3z" />
+            <path d="M7 15h10v3.5A2.5 2.5 0 0 1 14.5 21h-5A2.5 2.5 0 0 1 7 18.5V15z" />
+            <path d="M5 12h14" opacity="0.55" />
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">LUMIÈN</span>
+          <span class="brand-tagline">Ánh sáng &amp; Hương thơm</span>
+        </span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Điều hướng chính">
+        <a href="#trang-chu" class="nav-link is-active">Trang chủ</a>
+        <a href="#san-pham" class="nav-link">Sản phẩm</a>
+        <a href="#cong-dung" class="nav-link">Công dụng</a>
+        <a href="#lien-he" class="nav-link">Liên hệ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn btn-gold btn-sm header-consult-btn" data-action="open-chat">
+          Tư vấn chọn mùi
+        </button>
+
+        <button
+          type="button"
+          class="cart-btn"
+          data-action="open-cart"
+          aria-label="Mở giỏ hàng"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-badge" id="cart-badge" hidden>0</span>
+        </button>
+
+        <button
+          type="button"
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="Mở menu điều hướng"
+          aria-expanded="false"
+          aria-controls="mobile-nav-overlay"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="Menu điều hướng di động">
+      <div>
+        <div class="mobile-nav-head">
+          <span class="brand-name">LUMIÈN</span>
+          <button type="button" class="icon-close-btn" id="mobile-nav-close" aria-label="Đóng menu">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="mobile-nav-links" aria-label="Liên kết di động">
+          <a href="#trang-chu" class="mobile-nav-link">Trang chủ <span>→</span></a>
+          <a href="#san-pham" class="mobile-nav-link">Sản phẩm <span>→</span></a>
+          <a href="#cong-dung" class="mobile-nav-link">Công dụng <span>→</span></a>
+          <a href="#lien-he" class="mobile-nav-link">Liên hệ <span>→</span></a>
+        </nav>
+      </div>
+
+      <div class="mobile-nav-foot">
+        <button type="button" class="btn btn-primary btn-full" data-action="open-consult">
+          Tư vấn ngay
+        </button>
+        <p class="mobile-nav-phone">Hotline hỗ trợ: <strong>0908 682 468</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ====================================================================
+         HERO SECTION
+         ==================================================================== -->
+    <section class="hero" id="trang-chu">
+      <div class="container hero-grid">
+        <div class="hero-content reveal is-visible">
+          <span class="hero-eyebrow">
+            <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+            Ánh sáng êm dịu · Hương thơm đuổi muỗi
+          </span>
+
+          <h1 class="hero-title">
+            Đèn Thư Giãn Tích Hợp<br /><em>Nến Thơm Đuổi Muỗi</em>
+          </h1>
+
+          <p class="hero-lead">
+            Ánh sáng vàng ấm dịu nhẹ vỗ về giấc ngủ sâu, hòa quyện cùng tinh dầu thiên nhiên
+            giúp xua muỗi an toàn cho cả gia đình — biến góc phòng ngủ thành khoảng lặng bình yên mỗi tối.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#san-pham" class="btn btn-primary btn-lg">
+              Khám phá sản phẩm
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <button type="button" class="btn btn-secondary btn-lg" data-action="open-consult">
+              Tư vấn ngay
+            </button>
+          </div>
+
+          <div class="hero-metrics">
+            <div>
+              <span class="hero-metric-value">200.000₫</span>
+              <span class="hero-metric-label">Đồng giá trọn bộ đèn &amp; nến</span>
+            </div>
+            <div>
+              <span class="hero-metric-value">100% Tự nhiên</span>
+              <span class="hero-metric-label">Sáp thực vật &amp; tinh dầu lành tính</span>
+            </div>
+            <div>
+              <span class="hero-metric-value">2 trong 1</span>
+              <span class="hero-metric-label">Đèn ngủ thư giãn &amp; xua muỗi</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Interactive Real-Photo Showcase -->
+        <div class="hero-visual reveal is-visible reveal-delay-1">
+          <div class="lamp-stage lamp-stage--photo" id="hero-lamp-stage">
+            <div class="hero-photo-layer">
+              <img
+                id="hero-showcase-img"
+                class="hero-showcase-img"
+                data-product-img
+                src="./images/blossom.jpg"
+                alt="Đèn thư giãn tích hợp nến thơm đuổi muỗi Blossom"
+              />
+            </div>
+            <div class="hero-photo-warm-veil" aria-hidden="true"></div>
+
+            <span class="stage-chip stage-chip--top">
+              <span class="stage-chip-dot" aria-hidden="true"></span>
+              Ánh sáng 2700K dịu mắt
+            </span>
+
+            <span class="stage-chip stage-chip--side" id="hero-scent-label">
+              Blossom · 200.000₫
+            </span>
+
+            <!-- Interactive Scent Preview & Warm Dimmer Control -->
+            <div class="hero-stage-controls">
+              <div class="hero-control-row">
+                <span class="dimmer-label">Xem 3 mùi hương:</span>
+                <div class="dimmer-controls" role="group" aria-label="Chuyển ảnh mùi hương">
+                  <button type="button" class="dimmer-btn" data-hero-scent="ocean" aria-pressed="false">Ocean</button>
+                  <button type="button" class="dimmer-btn" data-hero-scent="blue-mint" aria-pressed="false">Blue mint</button>
+                  <button type="button" class="dimmer-btn is-active" data-hero-scent="blossom" aria-pressed="true">Blossom</button>
+                </div>
+              </div>
+              <div class="hero-control-row">
+                <span class="dimmer-label">Thử độ sáng đèn:</span>
+                <div class="dimmer-controls" role="group" aria-label="Mức sáng đèn ngủ">
+                  <button type="button" class="dimmer-btn" data-dimmer-level="0.25" aria-pressed="false">Dịu nhẹ</button>
+                  <button type="button" class="dimmer-btn is-active" data-dimmer-level="0.72" aria-pressed="true">Thư giãn</button>
+                  <button type="button" class="dimmer-btn" data-dimmer-level="1" aria-pressed="false">Ấm áp</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SENSORY TRUST STRIP
+         ==================================================================== -->
+    <div class="trust-strip" aria-label="Cam kết chất lượng">
+      <div class="container">
+        <ul class="trust-list">
+          <li class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Sáp thực vật lành tính</span>
+          </li>
+          <li class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+            </svg>
+            <span>Ánh sáng vàng 2700K êm mắt</span>
+          </li>
+          <li class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"></path>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+            </svg>
+            <span>Tinh dầu thiên nhiên xua muỗi</span>
+          </li>
+          <li class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Tỏa hương bền 35 – 40 giờ</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SECTION: ĐIỂM NỔI BẬT / CÔNG DỤNG
+         ==================================================================== -->
+    <section class="section benefits-section" id="cong-dung">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Điểm nổi bật &amp; Công dụng</span>
+          <h2 class="section-title">
+            Một chiếc đèn nhỏ, <em>trọn vẹn giấc ngủ an lành</em>
+          </h2>
+          <p class="section-subtitle">
+            Thiết kế tối giản nhưng chăm chút trọn vẹn trải nghiệm thư giãn mỗi đêm — vừa chiếu sáng dịu êm,
+            vừa lan tỏa hương tinh dầu đuổi muỗi tự nhiên.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6"></path>
+                <path d="M10 22h4"></path>
+                <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"></path>
+              </svg>
+            </div>
+            <h3 class="benefit-title">2 Trong 1 Tiện Ích</h3>
+            <p class="benefit-desc">
+              Vừa làm đèn ngủ ánh sáng vàng ấm giúp thư giãn thị giác, vừa làm ấm sáp nến tỏa hương đều đặn, gọn gàng cho bàn đầu giường.
+            </p>
+          </article>
+
+          <article class="benefit-card reveal reveal-delay-1">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"></path>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Tinh Dầu Tự Nhiên Xua Muỗi</h3>
+            <p class="benefit-desc">
+              Hương sả chanh, bạc hà và hoa cỏ thiên nhiên tạo màng hương êm dịu giúp xua đuổi muỗi hiệu quả mà không gây hắc hay cay mắt.
+            </p>
+          </article>
+
+          <article class="benefit-card reveal reveal-delay-2">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l1.9 5.8L20 10.7l-4.9 3.6 1.9 5.7-5-3.6-5 3.6 1.9-5.7L4 10.7l6.1-1.9L12 3z"></path>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Thiết Kế Decor Tinh Tế</h3>
+            <p class="benefit-desc">
+              Đèn gỗ chao hoa chuông thanh lịch hòa cùng sắc trắng kem – vàng mật ong ấm áp, nâng tầm thẩm mỹ cho phòng ngủ hay góc đọc sách.
+            </p>
+          </article>
+
+          <article class="benefit-card reveal reveal-delay-3">
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
+            <h3 class="benefit-title">An Toàn Cho Gia Đình</h3>
+            <p class="benefit-desc">
+              Sáp lành tính không khói đen, không hóa chất độc hại, an tâm sử dụng trong phòng máy lạnh có trẻ nhỏ hoặc người nhạy cảm mùi.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION: 3 SẢN PHẨM CHÍNH (ĐỒNG GIÁ 200.000₫)
+         ==================================================================== -->
+    <section class="section products-section" id="san-pham">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Bộ sưu tập đặc trưng</span>
+          <h2 class="section-title">
+            Ba Mùi Hương <em>Thư Giãn &amp; Đuổi Muỗi</em>
+          </h2>
+          <p class="section-subtitle">
+            Lựa chọn nốt hương đồng điệu với cảm xúc mỗi tối của bạn. Mỗi sản phẩm bao gồm trọn bộ đèn gỗ
+            chao hoa và hũ nến thơm tinh dầu thiên nhiên.
+          </p>
+          <div class="uniform-price-pill">
+            <span>Đồng giá ưu đãi:</span>
+            <strong>200.000₫ / bộ</strong>
+            <span>· Freeship từ 2 bộ</span>
+          </div>
+        </div>
+
+        <div class="products-grid" id="products-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION: TƯ VẤN CHỌN MÙI HƯƠNG
+         ==================================================================== -->
+    <section class="cta-section" aria-label="Tư vấn chọn mùi hương">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-copy">
+            <h2>Chưa biết chọn Ocean, Blue mint hay Blossom?</h2>
+            <p>
+              Trò chuyện ngay với tư vấn viên LUMIÈN để được gợi ý mùi hương hợp diện tích phòng ngủ,
+              ưu tiên đuổi muỗi hay gói quà tặng tinh tế miễn phí.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <button type="button" class="btn btn-primary btn-lg" data-action="open-chat">
+              Nhắn tin tư vấn ngay
+            </button>
+            <a href="tel:0908682468" class="btn btn-secondary btn-lg">
+              Gọi 0908 682 468
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION: LIÊN HỆ VỚI CHÚNG TÔI (GIAI ĐOẠN 2)
+         ==================================================================== -->
+    <section class="section contact-section" id="lien-he">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Liên hệ với chúng tôi</span>
+          <h2 class="section-title">
+            Kết Nối Trực Tiếp Cùng <em>LUMIÈN</em>
+          </h2>
+          <p class="section-subtitle">
+            Cần đặt số lượng làm quà tặng, hỏi thêm về mùi hương hay theo dõi đơn hàng?
+            Gửi lời nhắn trực tiếp hoặc liên hệ nhanh qua các kênh bên dưới.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Direct Store Contact Channels -->
+          <div class="contact-channels-card reveal">
+            <div class="contact-channels-intro">
+              <h3>Kênh hỗ trợ nhanh</h3>
+              <p>Đội ngũ LUMIÈN trực tuyến hằng ngày từ 08:30 – 21:30 để phản hồi bạn sớm nhất.</p>
+            </div>
+
+            <div class="contact-channel-list">
+              <a href="tel:0908682468" class="contact-channel-item">
+                <span class="contact-channel-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </span>
+                <div>
+                  <span class="contact-channel-label">Hotline đặt hàng &amp; CSKH</span>
+                  <span class="contact-channel-value">0908 682 468</span>
+                </div>
+              </a>
+
+              <a href="https://zalo.me/0908682468" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                <span class="contact-channel-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </span>
+                <div>
+                  <span class="contact-channel-label">Zalo tư vấn nhanh</span>
+                  <span class="contact-channel-value">zalo.me/0908682468</span>
+                </div>
+              </a>
+
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                <span class="contact-channel-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg>
+                </span>
+                <div>
+                  <span class="contact-channel-label">Fanpage Facebook</span>
+                  <span class="contact-channel-value">LUMIÈN · Ánh Sáng &amp; Hương Thơm</span>
+                </div>
+              </a>
+
+              <a href="mailto:hello@lumien.vn" class="contact-channel-item">
+                <span class="contact-channel-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </span>
+                <div>
+                  <span class="contact-channel-label">Email hỗ trợ &amp; Hợp tác</span>
+                  <span class="contact-channel-value">hello@lumien.vn</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Direct Contact Form -->
+          <div class="contact-form-card reveal reveal-delay-1">
+            <h3>Gửi lời nhắn trực tiếp</h3>
+            <p>Để lại thông tin bên dưới, chủ shop LUMIÈN sẽ tiếp nhận và liên hệ lại ngay.</p>
+
+            <form class="consult-form" id="contact-section-form" novalidate>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Họ và tên *</label>
+                  <input
+                    class="form-input"
+                    id="contact-name"
+                    name="customerName"
+                    type="text"
+                    placeholder="Ví dụ: Trần Thảo Vy"
+                    required
+                  />
+                  <span class="field-error" data-error-for="customerName" hidden></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contact-phone">Số điện thoại *</label>
+                  <input
+                    class="form-input"
+                    id="contact-phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="Ví dụ: 0908 123 456"
+                    required
+                  />
+                  <span class="field-error" data-error-for="phone" hidden></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Nội dung lời nhắn *</label>
+                <textarea
+                  class="form-textarea"
+                  id="contact-message"
+                  name="message"
+                  rows="4"
+                  placeholder="Bạn muốn tư vấn mùi hương nào, đặt làm quà tặng hay hỏi về đơn hàng?"
+                  required
+                ></textarea>
+                <span class="field-error" data-error-for="message" hidden></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-full">
+                Gửi lời nhắn cho LUMIÈN
+              </button>
+            </form>
+
+            <div class="contact-success-banner" id="contact-success-banner" role="status" hidden>
+              Cảm ơn bạn! Lời nhắn đã được gửi đến cửa hàng LUMIÈN, chúng mình sẽ liên hệ lại sớm nhất.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#trang-chu" class="brand" aria-label="LUMIÈN">
+            <span class="brand-mark" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3c1.8 2.4 3 4.3 3 6.2a3 3 0 1 1-6 0C9 7.3 10.2 5.4 12 3z" />
+                <path d="M7 15h10v3.5A2.5 2.5 0 0 1 14.5 21h-5A2.5 2.5 0 0 1 7 18.5V15z" />
+                <path d="M5 12h14" opacity="0.55" />
+              </svg>
+            </span>
+            <span class="brand-text">
+              <span class="brand-name">LUMIÈN</span>
+              <span class="brand-tagline">Ánh sáng &amp; Hương thơm</span>
+            </span>
+          </a>
+          <p class="footer-brand-desc">
+            Chuyên dòng đèn thư giãn tích hợp nến thơm đuổi muỗi từ tinh dầu thiên nhiên — đồng hành cùng
+            giấc ngủ êm sâu và không gian sống tinh tế của gia đình Việt.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Khám phá</h3>
+          <ul class="footer-links">
+            <li><a href="#trang-chu" class="footer-link">Trang chủ</a></li>
+            <li><a href="#san-pham" class="footer-link">Sản phẩm (Đồng giá 200.000₫)</a></li>
+            <li><a href="#cong-dung" class="footer-link">Công dụng &amp; Điểm nổi bật</a></li>
+            <li><a href="#lien-he" class="footer-link">Liên hệ với chúng tôi</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Thông tin cửa hàng</h3>
+          <ul class="footer-info-list">
+            <li class="footer-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>128 Đường Xuân Thủy, Phường Thảo Điền, TP. Thủ Đức, TP. Hồ Chí Minh</span>
+            </li>
+            <li class="footer-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Thứ 2 – Chủ Nhật: 08:30 – 21:30</span>
+            </li>
+            <li class="footer-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <a href="tel:0908682468" class="footer-link">0908 682 468</a>
+            </li>
+            <li class="footer-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <a href="mailto:hello@lumien.vn" class="footer-link">hello@lumien.vn</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Kết nối với chúng tôi</h3>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook LUMIÈN">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram LUMIÈN">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="TikTok LUMIÈN">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
+            <a href="https://zalo.me/0908682468" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Zalo LUMIÈN">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </a>
+          </div>
+          <p class="footer-social-note">
+            Theo dõi LUMIÈN để cập nhật mẹo decor phòng ngủ ấm cúng và ưu đãi mùi hương mới.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 LUMIÈN Studio. Bảo lưu mọi quyền.</p>
+        <p>
+          Đèn thư giãn tích hợp nến thơm đuổi muỗi ·
+          <button type="button" class="footer-admin-trigger" data-action="open-admin">
+            Quản lý cửa hàng
+          </button>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       PRODUCT DETAIL MODAL
+       ====================================================================== -->
+  <div
+    class="modal-overlay"
+    id="product-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="product-modal-title"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <button
+        type="button"
+        class="modal-close-floating"
+        data-action="close-product-modal"
+        aria-label="Đóng chi tiết sản phẩm"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div id="product-modal-slot"></div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       CART SLIDE-OVER DRAWER
+       ====================================================================== -->
+  <div class="drawer-overlay" id="cart-drawer-overlay" aria-hidden="true">
+    <aside class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title">
+      <div class="cart-drawer-header">
+        <h3 class="cart-drawer-title" id="cart-drawer-title">Giỏ hàng của bạn</h3>
+        <button type="button" class="icon-close-btn" data-action="close-cart" aria-label="Đóng giỏ hàng">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="cart-drawer-body" id="cart-drawer-body"></div>
+      <div class="cart-drawer-footer" id="cart-drawer-footer" hidden></div>
+    </aside>
+  </div>
+
+  <!-- ======================================================================
+       CHECKOUT MODAL (THU THẬP THÔNG TIN KHÁCH MUA)
+       ====================================================================== -->
+  <div
+    class="modal-overlay"
+    id="checkout-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="checkout-modal-title"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog--checkout">
+      <button
+        type="button"
+        class="modal-close-floating"
+        data-action="close-checkout"
+        aria-label="Đóng khung đặt hàng"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="checkout-layout">
+        <!-- Buyer Form -->
+        <div class="checkout-form-pane">
+          <div class="checkout-header">
+            <h3 id="checkout-modal-title">Thông tin đặt hàng</h3>
+            <p>Điền thông tin nhận hàng chính xác để LUMIÈN giao tận nơi nhanh chóng.</p>
+          </div>
+
+          <form class="checkout-form" id="checkout-form" novalidate>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label" for="checkout-name">Họ và tên người nhận *</label>
+                <input
+                  class="form-input"
+                  id="checkout-name"
+                  name="customerName"
+                  type="text"
+                  placeholder="Ví dụ: Nguyễn Minh Anh"
+                  autocomplete="name"
+                  required
+                />
+                <span class="field-error" data-error-for="customerName" hidden></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="checkout-phone">Số điện thoại *</label>
+                <input
+                  class="form-input"
+                  id="checkout-phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Ví dụ: 0908 123 456"
+                  autocomplete="tel"
+                  required
+                />
+                <span class="field-error" data-error-for="phone" hidden></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="checkout-address">Địa chỉ giao hàng *</label>
+              <input
+                class="form-input"
+                id="checkout-address"
+                name="address"
+                type="text"
+                placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành phố"
+                autocomplete="street-address"
+                required
+              />
+              <span class="field-error" data-error-for="address" hidden></span>
+            </div>
+
+            <div class="form-group">
+              <span class="form-label">Phương thức thanh toán *</span>
+              <div class="payment-options">
+                <label class="payment-option-card">
+                  <input type="radio" name="paymentMethod" value="cod" checked />
+                  <span>
+                    <span class="payment-option-title">Thanh toán khi nhận hàng (COD)</span>
+                    <span class="payment-option-desc">Kiểm tra sản phẩm rồi mới thanh toán</span>
+                  </span>
+                </label>
+
+                <label class="payment-option-card">
+                  <input type="radio" name="paymentMethod" value="bank" />
+                  <span>
+                    <span class="payment-option-title">Chuyển khoản ngân hàng</span>
+                    <span class="payment-option-desc">Nhanh gọn · Ghi mã đơn khi chuyển</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Bank Transfer Info Box (visible when Bank Transfer selected) -->
+            <div class="bank-info-box" id="checkout-bank-info" hidden>
+              <div class="bank-info-top">
+                <span class="bank-info-title">Thông tin chuyển khoản LUMIÈN</span>
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm"
+                  data-action="copy-text"
+                  data-copy="102868246888"
+                >
+                  Sao chép STK
+                </button>
+              </div>
+              <p>Ngân hàng: <strong>Vietcombank (VCB)</strong> · Chi nhánh TP. Thủ Đức</p>
+              <p>Số tài khoản: <strong class="mono-text">1028 6824 6888</strong></p>
+              <p>Chủ tài khoản: <strong>NGUYEN MINH ANH · LUMIEN STUDIO</strong></p>
+              <p>Nội dung: <em>Mã đơn hàng sẽ hiển thị ngay sau khi bạn bấm xác nhận.</em></p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="checkout-note">Ghi chú thêm (không bắt buộc)</label>
+              <textarea
+                class="form-textarea"
+                id="checkout-note"
+                name="note"
+                rows="2"
+                placeholder="Ví dụ: Giao giờ hành chính, gói hộp quà tặng kèm thiệp..."
+              ></textarea>
+            </div>
+
+            <div class="checkout-actions-row">
+              <button type="button" class="btn btn-outline" data-action="back-to-cart">
+                ← Quay lại giỏ hàng
+              </button>
+              <button type="submit" class="btn btn-primary btn-lg">
+                Xác nhận đặt hàng
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Order Summary Sidebar -->
+        <aside class="checkout-summary-pane">
+          <div id="checkout-summary-slot"></div>
+          <div class="checkout-assurance">
+            <strong>Cam kết từ LUMIÈN:</strong> Đóng gói chống sốc cẩn thận cho chao đèn và hũ nến thủy tinh.
+            Hỗ trợ đổi mới 1–1 nếu có lỗi vận chuyển.
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       ORDER CONFIRMATION POPUP (MÃ ĐƠN HÀNG & TÓM TẮT ĐƠN)
+       ====================================================================== -->
+  <div
+    class="modal-overlay"
+    id="order-success-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="order-success-title"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog--receipt">
+      <button
+        type="button"
+        class="modal-close-floating"
+        data-action="close-order-success"
+        aria-label="Đóng xác nhận đơn hàng"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div id="order-success-slot"></div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       SELLER ADMIN PANEL ("QUẢN LÝ CHO NGƯỜI BÁN" · #admin · admin123)
+       ====================================================================== -->
+  <div
+    class="modal-overlay"
+    id="admin-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Quản lý cho Người bán LUMIÈN"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog--admin">
+      <button
+        type="button"
+        class="modal-close-floating"
+        data-admin-action="close"
+        aria-label="Đóng bảng quản lý"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Login Gate -->
+      <div class="admin-login-box" id="admin-login-view">
+        <span class="admin-eyebrow">Khu vực Chủ shop</span>
+        <h3>Quản lý cho Người bán</h3>
+        <p>Nhập mật khẩu quản trị để xem đơn hàng, tin nhắn tư vấn và yêu cầu liên hệ.</p>
+
+        <form class="admin-login-form" id="admin-login-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="admin-password-input">Mật khẩu quản trị</label>
+            <input
+              class="form-input"
+              id="admin-password-input"
+              type="password"
+              placeholder="Nhập mật khẩu..."
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <span class="field-error" id="admin-login-error" hidden></span>
+          <button type="submit" class="btn btn-primary btn-full">Đăng nhập</button>
+        </form>
+
+        <p class="admin-login-hint">
+          Mật khẩu demo mặc định: <strong>admin123</strong> (có thể đổi trong <code>js/config.js</code>).
+        </p>
+      </div>
+
+      <!-- Authenticated 3-Tab Dashboard -->
+      <div id="admin-dashboard-view" hidden></div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       FLOATING QUICK CONTACT DOCK (GỌI ĐIỆN / ZALO) + LIVE CHAT WIDGET
+       ====================================================================== -->
+  <div class="floating-dock" aria-label="Liên hệ nhanh và tư vấn trực tuyến">
+    <a href="tel:0908682468" class="quick-contact-btn" aria-label="Gọi điện thoại 0908 682 468">
+      <span class="quick-contact-icon" aria-hidden="true">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </span>
+      <span class="quick-contact-text">Gọi ngay</span>
+    </a>
+
+    <a
+      href="https://zalo.me/0908682468"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="quick-contact-btn"
+      aria-label="Nhắn tin Zalo LUMIÈN"
+    >
+      <span class="quick-contact-icon" aria-hidden="true">Z</span>
+      <span class="quick-contact-text">Zalo</span>
+    </a>
+
+    <button
+      type="button"
+      class="chat-launcher-btn"
+      id="chat-launcher"
+      aria-expanded="false"
+      aria-controls="chat-widget-panel"
+    >
+      <span class="chat-online-dot" aria-hidden="true"></span>
+      <span>Tư vấn ngay</span>
+    </button>
+  </div>
+
+  <!-- Live Chat Dialog Box -->
+  <section
+    class="chat-widget-panel"
+    id="chat-widget-panel"
+    role="dialog"
+    aria-label="Hộp thoại tư vấn trực tuyến LUMIÈN"
+    aria-hidden="true"
+  >
+    <header class="chat-panel-header">
+      <div class="chat-header-identity">
+        <span class="chat-avatar" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c1.8 2.4 3 4.3 3 6.2a3 3 0 1 1-6 0C9 7.3 10.2 5.4 12 3z" />
+            <path d="M7 15h10v3.5A2.5 2.5 0 0 1 14.5 21h-5A2.5 2.5 0 0 1 7 18.5V15z" />
+          </svg>
+        </span>
+        <div>
+          <div class="chat-header-title">Tư vấn LUMIÈN</div>
+          <div class="chat-header-status">
+            <span class="chat-online-dot" aria-hidden="true"></span>
+            Đang trực tuyến · Trả lời tức thì
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="icon-close-btn" id="chat-close-btn" aria-label="Thu gọn khung chat">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </header>
+
+    <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+
+    <div class="chat-quick-bar" id="chat-quick-replies" aria-label="Câu hỏi gợi ý nhanh"></div>
+
+    <form class="chat-composer" id="chat-form" novalidate>
+      <div class="chat-contact-bar">
+        <button
+          type="button"
+          class="chat-contact-toggle"
+          id="chat-contact-toggle"
+          aria-expanded="false"
+        >
+          Để lại Tên &amp; SĐT cho người bán
+        </button>
+      </div>
+
+      <div class="chat-contact-fields" id="chat-contact-fields" hidden>
+        <input
+          class="chat-mini-input"
+          id="chat-customer-name"
+          type="text"
+          placeholder="Tên của bạn"
+          aria-label="Tên của bạn"
+        />
+        <input
+          class="chat-mini-input"
+          id="chat-customer-phone"
+          type="tel"
+          placeholder="SĐT / Zalo (để shop gọi lại)"
+          aria-label="Số điện thoại của bạn"
+        />
+      </div>
+
+      <span class="field-error" id="chat-form-error" hidden></span>
+
+      <div class="chat-input-row">
+        <input
+          class="chat-message-input"
+          id="chat-message-input"
+          type="text"
+          placeholder="Nhập câu hỏi hoặc lời nhắn..."
+          autocomplete="off"
+        />
+        <button type="submit" class="chat-send-btn" aria-label="Gửi tin nhắn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Modular Scripts (work seamlessly on both file:// and HTTP servers) -->
+  <script src="./js/config.js"></script>
+  <script src="./js/webhook.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/store.js"></script>
+  <script src="./js/components.js"></script>
+  <script src="./js/chatbot-kb.js"></script>
+  <script src="./js/chat.js"></script>
+  <script src="./js/admin.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
