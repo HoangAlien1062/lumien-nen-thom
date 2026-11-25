@@ -23,7 +23,7 @@
 // Ví dụ URL: https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/edit
 // -> SPREADSHEET_ID = '1AbCdEfGhIjKlMnOpQrStUvWxYz'
 // (Nếu để trống '', script sẽ thử lấy Sheet đang gắn trực tiếp với Apps Script.)
-const SPREADSHEET_ID = '';
+const SPREADSHEET_ID = '1RHtymsEv5LUWOnby5hfO8lSl_03h-Iqag2A4JZWMFl8';
 
 // (Tùy chọn) Điền Gmail chủ shop nếu muốn nhận thêm email báo ngay khi có khách mới.
 // Để trống '' nếu chỉ cần lưu vào Google Sheets.
